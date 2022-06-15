@@ -95,3 +95,6 @@ git push -u origin main
 git remote add origin git@github.com:otao-github/tutorial-git.git
 git branch -M main
 git push -u origin main
+
+# --no-ff 关闭fastforward 通过增加一次commit 避免删除分支丢失分支信息
+git merge --no-ff -m "merge with no-ff" dev
