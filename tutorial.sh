@@ -148,3 +148,14 @@ git pull origin dev # 抓取已更新远程分支
 git add conflict.txt
 git commit -m 'fix conflict'
 git push origin dev
+
+
+# 当查看提交线觉得很乱时候
+git log --graph --pretty=oneline --abbrev-commit
+
+# 变基分支 rebase
+git rebase
+# 将当前分叉设为根基 使log结果成为一条直线
+
+git commit -m "rebase"
+
