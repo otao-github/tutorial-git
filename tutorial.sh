@@ -98,3 +98,53 @@ git push -u origin main
 
 # --no-ff 关闭fastforward 通过增加一次commit 避免删除分支丢失分支信息
 git merge --no-ff -m "merge with no-ff" dev
+
+# stash 临时缓存工作区
+# 适用于临时切换 branch
+git stash # 将未提交工作区状态暂存
+git stash list # 查看暂存栈
+    git stash apply stash${0} # 回复暂存状态
+    git stash drop # 删除暂存状态
+git stash pop # 回复最近一次暂存工作区并从暂存列表中删除
+
+git cherry-pick 4c805e2 # 不合并分支，只合并最后指定一次提交 commit_id
+git branch -D feature-vulcan # 强制删除未合并分支
+
+# 多人协作篇
+git clone git@github.com:michaelliao/learngit.git
+
+git branch
+# * master
+# 只克隆了origin/master分支
+
+# 切换到远程origin/dev分支 作为本地dev分支
+git checkout -b dev origin/dev
+
+# [文件变动]
+git add -A
+git commit -m "file update"
+git push origin dev # 推送本地dev到远程仓库 origin/dev分支
+# 同等与 git push origin dev:dev
+
+# 拉取新版本远程分支
+git pull
+# no tracking information
+# git pull 失败，原因是没有指定本地dev分支与远程origin/dev分支的链接
+
+# 设置dev和origin/dev的链接
+git branch --set-upstream-to=origin/dev dev
+
+git pull
+# Auto-merging env.txt
+# CONFLICT (add/add): Merge conflict in env.txt
+# Automatic merge failed; fix conflicts and then commit the result.
+# 拉去后提示合并冲突，手动解决冲突
+git commit -m "fix env conflict"
+
+# 当其他人对该文件的变动已存在 提交产生冲突
+git pull origin dev # 抓取已更新远程分支
+
+# 在本地解决冲突 再合并
+git add conflict.txt
+git commit -m 'fix conflict'
+git push origin dev
