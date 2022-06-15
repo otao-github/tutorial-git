@@ -66,3 +66,15 @@ git branch # 查看分支
 git switch master # HEAD = &master
 git merge dev # 合并dev到当前分支（master） master = &dev
 git branch -d dev # 删除dev指针
+
+# 分支融合
+    # 快速合并/快进融合，master无新提交，dev下有新提交
+    # 冲突，master/dev各自有新的提交
+        git status # 查看冲突
+        git add readme.txt # 解决冲突
+        git status # 查看
+        git commit -m 'conflict fixed'
+        git log --graph --pretty=oneline --abbrev-commit # 查看分支合并情况
+        git branch -d feature1 # 删除分支
+
+git 
