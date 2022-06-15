@@ -155,7 +155,45 @@ git log --graph --pretty=oneline --abbrev-commit
 
 # 变基分支 rebase
 git rebase
-# 将当前分叉设为根基 使log结果成为一条直线
+# 把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。
 
 git commit -m "rebase"
 
+# tag 标签
+# 区别：分支可以不断更新，标签指向一个固定commit，将commit_id设置别名为tag (v1.2 v0.0.1)
+git switch <branch>
+git tag v1.0 # 设置别名
+git tag # 查看所有标签，按字母排序
+    # v1.0
+git tag v0.9 f52c633 # 对目标commit_id设置标签
+git show <tag> # 查看commit
+
+git tag -a v0.1 -m "version 0.1 released" 1094adb # 设置标签名字与注释
+git tag -d <tag> # delete tag
+
+# 同步标签
+git push origin <tag> # 同步该标签
+git push origin --tags # 同步全部标签
+
+# 删除远程标签
+git tag -d v0.9 # 先删除本地标签
+git push origin :refs/tags/v0.9 # 再删除远程标签
+
+# 社区协作
+fork 开源仓库 # 获得备份，可以在自己的仓库里修改文件
+# <提交变更>
+# 发起pull request，申请合并变更入官方仓库
+
+# 多个git提供商
+git remote rm origin # git给远程库起的默认名称是origin，远程库名不能重复
+git remote add gitee git@gitee.com:liaoxuefeng/learngit.git
+git remote add github git@github.com:liaoxuefeng/learngit.git
+
+# .gitignore
+git check-ignore -v App.class # 检测是否匹配忽略规则
+    # .gitignore:3:*.class	App.class # 匹配第三行规则
+
+# git config
+# https://www.liaoxuefeng.com/wiki/896043488029600/898732837407424
+# 自定义命令别名 简化输入
+# 
