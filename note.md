@@ -1,9 +1,15 @@
 # 个人笔记
 
 ## 关键词
-- commit: 提交/变更
+- commit: 提交变更
 - stash: 工作区快照
 - tag: commit_id alias 标签/别名
+- HEAD: 当前工作分支指针
+- origin: git默认远程仓库名
+- master: git默认主分支名
+- dev: 行业默认开发分支名
+- issue-001: // fix bug
+- feature-001: // add feature
 
 ## 结构
 - remote repository 远程仓库
