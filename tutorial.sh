@@ -77,4 +77,21 @@ git branch -d dev # 删除dev指针
         git log --graph --pretty=oneline --abbrev-commit # 查看分支合并情况
         git branch -d feature1 # 删除分支
 
-git 
+git log -graph # 查看分支合并图
+# 按q 退出 more 模式
+
+# Github 篇
+# new reposity
+git@github.com:otao-github/tutorial-git.git
+# …or create a new repository on the command line
+echo "# tutorial-git" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:otao-github/tutorial-git.git
+git push -u origin main
+# …or push an existing repository from the command line
+git remote add origin git@github.com:otao-github/tutorial-git.git
+git branch -M main
+git push -u origin main
